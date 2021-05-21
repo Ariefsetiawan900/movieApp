@@ -1,12 +1,12 @@
 import React from "react";
-import { Row,Banner } from "./parts";
+import { Row, Banner } from "./parts";
 import requests from "./config/request";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <Banner/>
+      <Banner />
       <Row
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fecthNetflixOriginals}
