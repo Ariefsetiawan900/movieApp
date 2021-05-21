@@ -1,3 +1,4 @@
-import Row from './Row'
+import Row from "./Row";
+import Banner from "./Banner";
 
-export {Row}
+export { Row, Banner };
