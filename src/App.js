@@ -1,9 +1,11 @@
 import React from 'react'
+import { Row } from './parts'
 
 const App = () => {
   return (
-    <div>
-      tes
+    <div className="App"> 
+      <Row title="NETFLIX ORIGINALS"/>
+      <Row title="Trending now"/>
     </div>
   )
 }
