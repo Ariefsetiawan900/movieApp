@@ -1,0 +1,22 @@
+.stars {
+    position: relative;
+    min-width: 200px;
+    display: inline-flex;
+}
+
+.star {
+    position: absolute;
+    display: inline-flex;
+    mask: url(./img/Star.svg) no-repeat center left;
+ 
+}
+.star:not(.placeholder) {
+    z-index: 2;
+
+    background-color: yellow;
+}
+
+.star.placeholder {
+    z-index: 1;
+    background-color: gray;
+}
