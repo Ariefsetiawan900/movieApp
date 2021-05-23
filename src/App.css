@@ -145,7 +145,7 @@ footer{
   align-items: center;
   /* background-color: rgba(18, 18, 18, 0.31); */
   margin-top: 10px;
-  border-top: 1px solid white;
+  border-top: 0.5px solid #e6e6e6;
 }
 
 footer h3{

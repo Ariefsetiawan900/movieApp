@@ -41,7 +41,7 @@ const Banner = () => {
 
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
-          <button className="banner__button">My List</button>
+          {/* <button className="banner__button">My List</button> */}
         </div>
 
         <h1 className="banner__description">
