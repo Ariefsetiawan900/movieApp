@@ -1,6 +1,6 @@
-import Row from "./Row";
-import Banner from "./Banner";
-import Nav from "./Nav";
-import Footer from "./Footer";
+import Row from "./Row/index";
+import Banner from "./Banner/index";
+import Nav from "./Nav/index";
+import Footer from "./Footer/index";
 
 export { Row, Banner,Nav,Footer };

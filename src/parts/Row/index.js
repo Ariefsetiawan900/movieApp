@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import api from "../config/api";
+import api from "../../config/api";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
-import Star from "../asset/img/star.svg";
+import Star from "../../asset/img/star.svg";
+import "./style.css"
 
 const baseURL = "https://image.tmdb.org/t/p/original/";
 

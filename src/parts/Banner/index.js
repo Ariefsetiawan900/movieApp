@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import api from "../config/api";
-import requests from "../config/request";
+import api from "../../config/api";
+import requests from "../../config/request";
+import "./style.css"
+
 const baseURL = "https://image.tmdb.org/t/p/original/";
 
 const Banner = () => {
@@ -25,7 +27,7 @@ const Banner = () => {
   };
 
   return (
-    <header
+    <div
       className="banner"
       style={{
         backgroundSize: "cover",
@@ -50,7 +52,7 @@ const Banner = () => {
       </div>
 
       <div className="banner__fadeBottom" />
-    </header>
+    </div>
   );
 };
 

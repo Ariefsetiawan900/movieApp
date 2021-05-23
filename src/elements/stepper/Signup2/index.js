@@ -1,27 +1,57 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 import "./style.css";
 
-const Signup2 = () => {
-  const history = useHistory();
+const Signup1 = ({ formData, setForm, navigation }) => {
+  const { laptop, address, phone } = formData;
 
   return (
     <div className="signup">
       <form>
-        <h1>Register</h1>
-        <input placeholder="First Name" type="text" />
-        <input placeholder="Last Name" type="text" />
+        <h1>Register2</h1>
+        <h3 style={{ textAlign: "left" }}>Have a laptop/PC?</h3>
+        <div className="signup__radioWrap">
+          <input
+            type="radio"
+            id="yes"
+            name="laptop"
+            value={laptop}
+            onChange={setForm}
+            className="signup__radioWrap"
+          />
+          <label htmlFor="yes">yes</label>
+          <input
+            type="radio"
+            id="no"
+            name="laptop"
+            value={laptop}
+            onChange={setForm}
+            className="signup__radioWrap"
+          />
+          <label htmlFor="no">no</label>
+        </div>
+        <textarea
+          placeholder="Address"
+          type="text"
+          name="address"
+          value={address}
+          onChange={setForm}
+        />
 
-        <input placeholder="Job Desc" type="text" />
-        <select name="gender">
-          <option disabled>Gender</option>
-          <option value="man">Man</option>
-          <option value="women">Women</option>
-        </select>
-        <input placeholder="Email" type="email" />
-        <button type="submit">Sign In</button>
-        <button onClick={() => history.goBack()} className="signup__btnGray">
+        <input
+          placeholder="Mobile Phone"
+          type="number"
+          name="phone"
+          value={phone}
+          onChange={setForm}
+        />
+        <button onClick={() => navigation.next()} type="submit">
+          Next
+        </button>
+        <button
+          onClick={() => navigation.previous()}
+          className="signup__btnGray"
+        >
           Back
         </button>
       </form>
@@ -29,4 +59,4 @@ const Signup2 = () => {
   );
 };
 
-export default Signup2;
+export default Signup1;
