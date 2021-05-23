@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Signup from '../Signup'
+import Signup from "../Signup";
+import Signup1 from '../../elements/stepper/Signup1'
 import "./style.css";
 
 const Login = () => {
@@ -14,9 +15,10 @@ const Login = () => {
         <div className="login__gradient" />
       </div>
 
-      <div className="login__body">
+      <div className="login__body" style={{ top: signIn ? "8%" : "25%" }}>
         {signIn ? (
-          <Signup />
+          // <Signup />
+          <Signup1/>
         ) : (
           <>
             <h1>Unlimited films, TV and more.</h1>

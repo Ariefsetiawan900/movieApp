@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import "./style.css";
 
-const Signup = () => {
+const Signup2 = () => {
   const history = useHistory();
 
   return (
@@ -29,4 +29,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signup2;
