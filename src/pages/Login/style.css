@@ -8,6 +8,8 @@
 .login__body {
     position: absolute;
     top: 30%;
+    left: 0;
+    right: 0;
     z-index: 1;
     color: #fff;
     padding: 20px;
