@@ -2,21 +2,22 @@ import React from "react";
 
 import "./style.css";
 
-const Signup1 = ({ formData, setForm, navigation }) => {
+const Signup2 = ({ formData, setForm, navigation }) => {
   const { laptop, address, phone } = formData;
 
   return (
     <div className="signup">
       <form>
-        <h1>Register2</h1>
+        <h1>Register</h1>
         <h3 style={{ textAlign: "left" }}>Have a laptop/PC?</h3>
-        <div className="signup__radioWrap">
+        <div className="signup__radioWrap" value={laptop}>
           <input
             type="radio"
             id="yes"
             name="laptop"
-            value={laptop}
+            value="yes"
             onChange={setForm}
+            checked={laptop === "yes"}
             className="signup__radioWrap"
           />
           <label htmlFor="yes">yes</label>
@@ -24,7 +25,8 @@ const Signup1 = ({ formData, setForm, navigation }) => {
             type="radio"
             id="no"
             name="laptop"
-            value={laptop}
+            value="no"
+            checked={laptop === "no"}
             onChange={setForm}
             className="signup__radioWrap"
           />
@@ -45,9 +47,16 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           value={phone}
           onChange={setForm}
         />
-        <button onClick={() => navigation.next()} type="submit">
-          Next
-        </button>
+        {laptop !== "" && address !== "" && phone !== "" ? (
+          <button onClick={() => navigation.next()} type="submit">
+            Next
+          </button>
+        ) : (
+          <button disabled style={{ backgroundColor: "gray" }}>
+            Next
+          </button>
+        )}
+
         <button
           onClick={() => navigation.previous()}
           className="signup__btnGray"
@@ -59,4 +68,4 @@ const Signup1 = ({ formData, setForm, navigation }) => {
   );
 };
 
-export default Signup1;
+export default Signup2;

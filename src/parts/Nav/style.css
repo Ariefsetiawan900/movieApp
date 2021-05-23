@@ -24,6 +24,7 @@
     color: #db0000;
     font-weight: bold;
     font-size: 1.5rem;
+    cursor: pointer;
   }
   
   .nav__avatar {

@@ -1,0 +1,58 @@
+.preview {
+    max-width: 300px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 5px;
+    max-height: 500px;
+}
+
+.preview>form>h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.preview__content>p{
+margin-bottom: 7px;
+}
+.preview__content>h3{
+    margin-bottom: 7px;
+    }
+
+.preview>form>h4 {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.preview>form {
+    display: flex;
+    flex-direction: column;
+}
+
+.preview>form>button {
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #e50914;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.2s;
+}
+.preview>form>button:hover {
+  background-color: rgba(230, 10, 21, 0.74)
+}
+
+.preview__btnGray{
+    background-color: gray !important;
+    transition: all 0.2s;
+}
+
+.preview__btnGray:hover{
+    background-color: rgba(128, 128, 128, 0.67) !important;
+}
+
+

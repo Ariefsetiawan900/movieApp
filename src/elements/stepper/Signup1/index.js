@@ -5,7 +5,8 @@ import "./style.css";
 
 const Signup1 = ({ formData, setForm, navigation }) => {
   const history = useHistory();
-  const { firstName, lastName, jobDesc, gender, email } = formData;
+  const { firstName, lastName, gender, email } = formData;
+
 
   return (
     <div className="signup">
@@ -17,6 +18,7 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="firstName"
           value={firstName}
           onChange={setForm}
+          required
         />
         <input
           placeholder="Last Name"
@@ -24,19 +26,12 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="lastName"
           value={lastName}
           onChange={setForm}
+          required
         />
-
-        <input
-          placeholder="Job Desc"
-          type="text"
-          name="jobDesc"
-          value={jobDesc}
-          onChange={setForm}
-        />
-        <select name="gender" value={gender} onChange={setForm}>
-          <option disabled>Gender</option>
+        <select name="gender"   onChange={setForm} required>
+          <option disabled selected>please enter gender</option>
           <option value="man">Man</option>
-          <option value="women">Women</option>
+          <option value="women" >Women</option>
         </select>
         <input
           placeholder="Email"
@@ -44,9 +39,14 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="email"
           value={email}
           onChange={setForm}
+          required
         />
-        <button onClick={()=>navigation.next()} type="submit">Next</button>
-        <button onClick={() => history.goBack()} className="signup__btnGray">
+        {firstName !== "" && lastName !== "" && gender !== "" && email !== "" ?(
+          <button onClick={()=>navigation.next()} type="submit">Next</button>
+        ):(
+          <button disabled style={{backgroundColor:"gray"}}>Next</button>
+        )}
+        <button onClick={() => history.push("/login")} className="signup__btnGray">
           Back
         </button>
       </form>
