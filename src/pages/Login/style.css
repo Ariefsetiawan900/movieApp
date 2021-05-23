@@ -5,17 +5,43 @@
     background-size: cover;
 }
 
+.login__body {
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.login__body>h1 {
+    font-size: 3.125rem;
+    margin-bottom: 20px;
+}
+
+.login__body>h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.login__body>h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+
 .login__gradient {
     width: 100%;
     z-index: 1;
     height: 100vh;
-    background:rgba(0,0,0,0.4) ;
-    background-image: linear-gradient(
-        to top,
-        rgba(0,0,0,0.8)0,
-        rgba(0,0,0,0) 60%,
-        rgba(0,0,0,0.8) 100%
-    );
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(to top,
+            rgba(0, 0, 0, 0.8)0,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.8) 100%);
 }
 
 .login__button {
@@ -41,5 +67,28 @@
     color: #db0000;
     font-weight: bold;
     padding-left: 20px;
+    cursor: pointer;
+}
+
+.login__input>form>input{
+    padding: 10px;
+    outline-width:0 ;
+    height: 30px;
+    width: 30%;
+    border: none;
+    max-width: 600px;
+}
+
+.login__input{
+    margin: 20px;
+}
+
+.login__getStarted{
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #e50914;
+    border: none;
+    font-weight: 600;
     cursor: pointer;
 }
