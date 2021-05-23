@@ -9,21 +9,22 @@ const baseURL = "https://image.tmdb.org/t/p/original/";
 const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [errorD, setErrorD] = useState("");
   const [detailMov, setDetailMov] = useState({
     nameD: "",
     rating: "",
     desc: "",
+    backdrop: "",
   });
 
   useEffect(() => {
     const fetchData = async () => {
       const request = await api.get(fetchUrl);
-      // console.log(request.data.results);
+      console.log(request.data.results);
       setMovies(request.data.results);
       return request;
     };
     fetchData();
-    console.log(trailerUrl);
   }, [fetchUrl, detailMov]);
 
   const opts = {
@@ -38,21 +39,43 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     if (trailerUrl) {
       setTrailerUrl("");
       clear();
-
     } else {
       setDetailMov({
         ...detailMov,
-        nameD: movie.name,
+        nameD:
+          movie?.name ||
+          movie?.original_title ||
+          movie?.original_name ||
+          movie?.title,
         desc: movie.overview,
         rating: movie.vote_average,
+        backdrop: movie.backdrop_path,
       });
-      movieTrailer(movie?.name || "")
+      movieTrailer(
+        movie?.name ||
+          movie?.original_title ||
+          movie?.original_name ||
+          movie?.title ||
+          ""
+      )
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
           setTrailerUrl(urlParams.get("v"));
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          setErrorD(error);
+        });
     }
+    // if(errorD) {
+    //   setErrorD("")
+    //   setTrailerUrl("")
+    //   clear()
+    //   window.location.reload()
+    // } else{
+    // setErrorD("")
+
+    // }
   };
 
   const clear = () => {
@@ -112,7 +135,38 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
           </div>
         </>
       )}
-      
+
+      {/* { errorD &&(
+        <div>
+          <img src={`${baseURL}${detailMov?.backdrop}`} alt={detailMov.title} style={{objectFit:'cover',width:'100%',height:"390px"}}/>
+          <div>
+            <p
+              style={{
+                fontSize: "2rem",
+                fontWeight: "bold",
+                marginBottom: "10px",
+              }}
+            >
+              {detailMov.nameD}
+            </p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "10px",
+              }}
+            >
+              <img
+                src={Star}
+                style={{ width: "25px", marginRight: "8px" }}
+                alt="Rating"
+              />
+              <p style={{ fontSize: "1.5rem" }}>({detailMov.rating})</p>
+            </div>
+            <p>{detailMov.desc}</p>
+          </div>
+        </div>
+      )} */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Banner,Nav } from "./parts";
+import { Row, Banner,Nav,Footer } from "./parts";
 import requests from "./config/request";
 import "./App.css";
 
@@ -20,6 +20,7 @@ const App = () => {
       <Row title="Horor Movies" fetchUrl={requests.fecthHorrorMovies} />
       <Row title="Romance Movies" fetchUrl={requests.fecthRomanceMovies} />
       <Row title="Documentaries" fetchUrl={requests.fecthDocumentaries} />
+      <Footer/>
     </div>
   );
 };
