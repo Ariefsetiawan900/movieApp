@@ -24,12 +24,13 @@ const Nav = () => {
 
   return (
     <div className={`nav ${show && "nav__black"}`}>
-      <span className="nav__logo" onClick={()=>history.push("/")}>MovieApp</span>
+      <span className="nav__logo" onClick={()=>history.push("/landingpage")}>MovieApp</span>
 
       <img
         src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
         alt="Avatar profile"
         className="nav__avatar"
+        onClick={()=>history.push("/profile")}
       />
     </div>
   );

@@ -46,7 +46,7 @@ const Signup1 = ({ formData, setForm, navigation }) => {
         ):(
           <button disabled style={{backgroundColor:"gray"}}>Next</button>
         )}
-        <button onClick={() => history.push("/login")} className="signup__btnGray">
+        <button onClick={() => history.push("/")} className="signup__btnGray">
           Back
         </button>
       </form>

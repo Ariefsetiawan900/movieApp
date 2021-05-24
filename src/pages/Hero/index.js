@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import Stepper from '../../elements/stepper'
 import "./style.css";
 
-const Login = () => {
+const Hero = () => {
   const [signIn, setSignIn] = useState(false);
   return (
-    <div className="login">
-      <div className="login__background">
-        <span className="login__logo">MovieApp</span>
-        <button onClick={() => setSignIn(true)} className="login__button">
-          Sign In
-        </button>
-        <div className="login__gradient" />
+    <div className="hero">
+      <div className="hero__background">
+        <span className="hero__logo">MovieApp</span>
+        
+        <div className="hero__gradient" />
       </div>
 
-      <div className="login__body" style={{ top: signIn ? "8%" : "25%" }}>
+      <div className="hero__body" style={{ top: signIn ? "8%" : "25%" }}>
         {signIn ? (
           <Stepper/>
         ) : (
@@ -26,12 +24,12 @@ const Login = () => {
               membership
             </h3>
 
-            <div className="login__input">
+            <div className="hero__input">
               <form>
-                <input type="email" placeholder="Email Addres" />
+                {/* <input type="email" placeholder="Email Addres" /> */}
                 <button
                   onClick={() => setSignIn(true)}
-                  className="login__getStarted"
+                  className="hero__getStarted"
                   type="submit"
                 >
                   GET STARTED
@@ -45,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Hero;

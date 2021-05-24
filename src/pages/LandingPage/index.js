@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Banner, Nav, Footer } from "../parts";
-import requests from "../config/request";
+import { Row, Banner, Nav, Footer } from "../../parts";
+import requests from "../../config/request";
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <div>
       <Nav />
@@ -28,4 +28,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LandingPage;

@@ -1,19 +1,36 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from "./pages/Home";
-import Login from './pages/Login'
-import Example from './pages/Example'
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import { Hero,LandingPage,Profile } from './pages'
 // import "./App.css";
 
 const App = () => {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+
+  useEffect(() => {
+  }, [user]);
+
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route exact path="/" component={Home}  />
-          <Route exact path="/login" component={Login}  />
-          <Route exact path="/example" component={Example}  />
-        </Switch>
+        {!user ? (
+          
+            <Route exact path="/" component={Hero}  />
+          
+        ) : (
+          <Switch>
+            <Route exact path="/landingpage" component={LandingPage} />
+            {/* <Route exact path="/" component={Hero}  /> */}
+            <Route exact path="/profile" component={Profile} />
+          </Switch>
+        )}
+
+        
       </Router>
     </div>
   );

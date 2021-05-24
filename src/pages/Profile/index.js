@@ -1,25 +1,35 @@
 import React,{useState} from "react";
-import { Nav } from "../parts";
-import "./example.css";
+import { Nav } from "../../parts";
+import { useHistory } from 'react-router-dom'
 
-const Example = () => {
+import "./style.css";
+
+const Profile = () => {
   const [data, setData] = useState(JSON.parse(localStorage.getItem("user")))
 
-  console.log(data)
+const history = useHistory()
+
+  const handlelogOut =()=>{
+    localStorage.clear()
+    setData(null)
+
+    history.push("/")
+    window.location.reload()
+  }
 
   return (
-    <div className="bio">
+    <div className="profile">
       <Nav />
-      <div className="bio__body">
+      <div className="profile__body">
         <h1>Profile</h1>
-        <div className="bio__info">
+        <div className="profile__info">
           <img
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
             alt="Avatar"
           />
-          <div className="bio__details">
+          <div className="profile__details">
             <h2>{data.email}</h2>
-            <div className="bio__plans">
+            <div className="profile__plans">
               
               <h3>Full Name :</h3>
               <h2>{data.firstName} {data.lastName}</h2>
@@ -36,7 +46,8 @@ const Example = () => {
               
               
             </div>
-              <button className="bio__signOut">Sign Out</button>
+              <button onClick={handlelogOut} className="profile__signOut">Sign Out</button>
+              <button onClick={()=>history.push("/landingpage")} className="profile__signOut gray">Back</button>
           </div>
         </div>
       </div>
@@ -44,4 +55,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Profile;

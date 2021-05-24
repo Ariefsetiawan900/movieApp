@@ -18,7 +18,8 @@ const Preview = ({ formData, setForm, navigation }) => {
 
   const handleSubmit =()=>{
     localStorage.setItem("user",JSON.stringify(formData))
-    history.push("/login")
+    history.push("/landingpage")
+    window.location.reload()
   }
 
   return (
