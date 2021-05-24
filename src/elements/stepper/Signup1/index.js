@@ -18,7 +18,7 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="firstName"
           value={firstName}
           onChange={setForm}
-          required
+         
         />
         <input
           placeholder="Last Name"
@@ -26,9 +26,9 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="lastName"
           value={lastName}
           onChange={setForm}
-          required
+         
         />
-        <select name="gender"   onChange={setForm} required>
+        <select name="gender"   onChange={setForm} >
           <option disabled selected>please enter gender</option>
           <option value="man">Man</option>
           <option value="women" >Women</option>
@@ -39,7 +39,7 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           name="email"
           value={email}
           onChange={setForm}
-          required
+          
         />
         {firstName !== "" && lastName !== "" && gender !== "" && email !== "" ?(
           <button onClick={()=>navigation.next()} type="submit">Next</button>
