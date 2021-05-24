@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@material-ui/core";
 import api from "../../config/api";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 import Star from "../../asset/img/star.svg";
-import "./style.css"
+import "./style.css";
 
 const baseURL = "https://image.tmdb.org/t/p/original/";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
-  const [errorD, setErrorD] = useState("");
   const [detailMov, setDetailMov] = useState({
     nameD: "",
     rating: "",
@@ -21,7 +21,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   useEffect(() => {
     const fetchData = async () => {
       const request = await api.get(fetchUrl);
-      console.log(request.data.results);
       setMovies(request.data.results);
       return request;
     };
@@ -65,18 +64,8 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         })
         .catch((error) => {
           console.log(error);
-          setErrorD(error);
         });
     }
-    // if(errorD) {
-    //   setErrorD("")
-    //   setTrailerUrl("")
-    //   clear()
-    //   window.location.reload()
-    // } else{
-    // setErrorD("")
-
-    // }
   };
 
   const clear = () => {
@@ -92,17 +81,23 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
       <h2>{title}</h2>
 
       <div className="row__posters">
-        {movies.map((movie) => (
-          <img
-            key={movie.id}
-            src={`${baseURL}${
-              isLargeRow ? movie.poster_path : movie.backdrop_path
-            }`}
-            onClick={() => handleClick(movie)}
-            alt={movie.name}
-            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-            title={movie.name}
-          />
+        {movies.map((movie, index) => (
+          <>
+            {movie.length === 0 ? (
+              <CircularProgress key={index} />
+            ) : (
+              <img
+                key={movie.id}
+                src={`${baseURL}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                onClick={() => handleClick(movie)}
+                alt={movie.name}
+                className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                title={movie.name}
+              />
+            )}
+          </>
         ))}
       </div>
       {trailerUrl && (
@@ -136,38 +131,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
           </div>
         </>
       )}
-
-      {/* { errorD &&(
-        <div>
-          <img src={`${baseURL}${detailMov?.backdrop}`} alt={detailMov.title} style={{objectFit:'cover',width:'100%',height:"390px"}}/>
-          <div>
-            <p
-              style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                marginBottom: "10px",
-              }}
-            >
-              {detailMov.nameD}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-              }}
-            >
-              <img
-                src={Star}
-                style={{ width: "25px", marginRight: "8px" }}
-                alt="Rating"
-              />
-              <p style={{ fontSize: "1.5rem" }}>({detailMov.rating})</p>
-            </div>
-            <p>{detailMov.desc}</p>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };

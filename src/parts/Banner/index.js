@@ -10,7 +10,7 @@ const Banner = () => {
 
   useEffect(() => {
     const fecthData = async () => {
-      const request = await api.get(requests.fecthNetflixOriginals);
+      const request = await api.get(requests.fecthTrending);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -27,6 +27,7 @@ const Banner = () => {
   };
 
   return (
+    <>
     <div
       className="banner"
       style={{
@@ -41,10 +42,6 @@ const Banner = () => {
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
 
-        <div className="banner__buttons">
-          <button className="banner__button">Play</button>
-          {/* <button className="banner__button">My List</button> */}
-        </div>
 
         <h1 className="banner__description">
           {truncate(movie?.overview, 150)}
@@ -53,6 +50,9 @@ const Banner = () => {
 
       <div className="banner__fadeBottom" />
     </div>
+
+
+    </>
   );
 };
 

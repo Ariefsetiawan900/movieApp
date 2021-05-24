@@ -17,7 +17,7 @@ const LandingPage = () => {
         fetchUrl={requests.fecthTrending}
         isLargeRow={true}
       />
-      <Row title="Top Rated" fetchUrl={requests.fecthTopRated} />
+      {/* <Row title="Top Rated" fetchUrl={requests.fecthTopRated} /> */}
       <Row title="Action Movies" fetchUrl={requests.fecthActionMovies} />
       <Row title="Comedy Movies" fetchUrl={requests.fecthComedyMovies} />
       <Row title="Horor Movies" fetchUrl={requests.fecthHorrorMovies} />

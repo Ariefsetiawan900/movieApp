@@ -1,8 +1,8 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { useForm, useStep } from "react-hooks-helper";
 import Signup1 from "./Signup1";
 import Signup2 from "./Signup2";
-import Preview from './Preview'
+import Preview from "./Preview";
 
 const defaultData = {
   firstName: "",
@@ -11,7 +11,7 @@ const defaultData = {
   email: "",
   laptop: "",
   address: "",
-  phone: 0,
+  phone: null,
 };
 
 const steps = [{ id: "a" }, { id: "b" }, { id: "preview" }];
@@ -26,15 +26,15 @@ const Stepper = () => {
   const props = { formData, setForm, navigation };
 
   useEffect(() => {
-    console.log(formData)
-  }, [formData])
+    console.log(formData);
+  }, [formData]);
 
   switch (step.id) {
     case "a":
       return <Signup1 {...props} />;
     case "b":
       return <Signup2 {...props} />;
-      case "preview":
+    case "preview":
       return <Preview {...props} />;
   }
 

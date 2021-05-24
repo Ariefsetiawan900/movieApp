@@ -1,0 +1,102 @@
+.notFound {
+    position: relative;
+    min-height: 100vh;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/11c803d4-06f3-467e-91f7-0560ce15a396/ea59f202-0b98-4378-a123-9f11ae902cc0/ID-id-20210517-popsignuptwoweeks-perspective_alpha_website_small.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.notFound__body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.notFound__body>h1 {
+    font-size: 3.125rem;
+    margin-bottom: 20px;
+}
+
+.notFound__body>h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.notFound__body>h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+
+.notFound__gradient {
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(to top,
+            rgba(0, 0, 0, 0.8)0,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.8) 100%);
+}
+
+.notFound__button {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #e50914;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.notFound__logo {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 150px;
+    font-size: 30px;
+    color: #db0000;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.notFound__input>form>input {
+    padding: 10px;
+    outline-width: 0;
+    height: 30px;
+    width: 30%;
+    border: none;
+    max-width: 600px;
+}
+
+.notFound__input {
+    margin: 20px;
+}
+
+.notFound__getStarted {
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #e50914;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.notFound__getStarted:hover{
+    background-color: rgba(230, 10, 21, 0.74)
+}
