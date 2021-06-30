@@ -5,7 +5,9 @@ import "./style.css";
 
 const Signup1 = ({ formData, setForm, navigation }) => {
   const history = useHistory();
-  const { firstName, lastName, gender, email } = formData;
+  const { firstName, lastName, gender, email,jobDesc } = formData;
+
+
 
 
   return (
@@ -28,6 +30,22 @@ const Signup1 = ({ formData, setForm, navigation }) => {
           onChange={setForm}
          
         />
+
+        {/* {
+          jobDesc.map(job=>(
+            <>
+              <input
+          placeholder="Job Title"
+          type="text"
+          name="jobTitle"
+          value={[...job.jobTitle]}
+          onChange={setForm}
+         
+        />
+            </>
+          ))
+        } */}
+    
         <select name="gender"   onChange={setForm} >
           <option disabled selected>please enter gender</option>
           <option value="man">Man</option>

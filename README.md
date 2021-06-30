@@ -37,7 +37,7 @@
 
 
 ## A. Introduction
-[MovieApp](https://movieapp2021-c2ea0.web.app "MovieApp"),  an application for user who wants to watch trailer dan detail
+[MovieApp](https://movieapp2021-c2ea0.web.app "MovieApp"),  an application for user who wants to watch trailer dan detail.
 
 ## B.  Requirements
 1. Install [Github](https://git-scm.com/downloads "Github")

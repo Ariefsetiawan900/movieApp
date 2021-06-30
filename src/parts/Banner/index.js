@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../config/api";
 import requests from "../../config/request";
+import Fade from "react-reveal/Fade"
 import "./style.css"
 
 const baseURL = "https://image.tmdb.org/t/p/original/";
@@ -28,6 +29,7 @@ const Banner = () => {
 
   return (
     <>
+    <Fade bottom>
     <div
       className="banner"
       style={{
@@ -51,7 +53,7 @@ const Banner = () => {
       <div className="banner__fadeBottom" />
     </div>
 
-
+    </Fade>
     </>
   );
 };

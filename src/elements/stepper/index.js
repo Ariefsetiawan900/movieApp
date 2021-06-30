@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useForm, useStep } from "react-hooks-helper";
+import { v4 as uuidv4 } from 'uuid';
 import Signup1 from "./Signup1";
 import Signup2 from "./Signup2";
 import Preview from "./Preview";
@@ -7,6 +8,10 @@ import Preview from "./Preview";
 const defaultData = {
   firstName: "",
   lastName: "",
+  jobDesc:[{
+    id:uuidv4(),
+    jobTitle:"",
+  }],
   gender: "",
   email: "",
   laptop: "",

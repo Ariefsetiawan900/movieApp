@@ -4,12 +4,15 @@ import api from "../../config/api";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 import Star from "../../asset/img/star.svg";
+import Fade from 'react-reveal/Fade'
+
 import "./style.css";
 
 const baseURL = "https://image.tmdb.org/t/p/original/";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
   const [detailMov, setDetailMov] = useState({
     nameD: "",
@@ -19,12 +22,18 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      const request = await api.get(fetchUrl);
-      setMovies(request.data.results);
-      return request;
-    };
-    fetchData();
+    setLoading(true);
+    try {
+      const fetchData = async () => {
+        const request = await api.get(fetchUrl);
+        setMovies(request.data.results);
+        return request;
+      };
+      fetchData();
+      setLoading(false);
+    } catch (error) {
+      setLoading(true);
+    }
   }, [fetchUrl, detailMov]);
 
   const opts = {
@@ -83,9 +92,10 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
       <div className="row__posters">
         {movies.map((movie, index) => (
           <>
-            {movie.length === 0 ? (
-              <CircularProgress key={index} />
+            {loading ? (
+              <CircularProgress key={index} color="secondary" />
             ) : (
+              <Fade delay={500 * index}>
               <img
                 key={movie.id}
                 src={`${baseURL}${
@@ -96,6 +106,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                 title={movie.name}
               />
+              </Fade>
             )}
           </>
         ))}

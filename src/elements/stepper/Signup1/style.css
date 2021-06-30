@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-.signup>form>input,.signup>form>select {
+.signup>form>input,.signup>form>select, .input {
     outline-width: 0;
     height: 40px;
     margin-bottom: 14px;
@@ -55,4 +55,9 @@
 
 .signup__btnGray:hover{
     background-color: rgba(128, 128, 128, 0.67) !important;
+}
+
+.btnAction{
+    margin-left: 10px;
+    padding: 15px ;
 }
