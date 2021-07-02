@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../config/api";
 import requests from "../../config/request";
-import Fade from "react-reveal/Fade"
-import "./style.css"
+import "./style.css";
 
 const baseURL = "https://image.tmdb.org/t/p/original/";
 
@@ -29,31 +28,27 @@ const Banner = () => {
 
   return (
     <>
-    <Fade bottom>
-    <div
-      className="banner"
-      style={{
-        backgroundSize: "cover",
-        backgroundImage: `url(
+      <div
+        className="banner"
+        style={{
+          backgroundSize: "cover",
+          backgroundImage: `url(
             ${baseURL}${movie?.backdrop_path}
         )`,
-      }}
-    >
-      <div className="banner__contents">
-        <h1 className="banner__title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
+        }}
+      >
+        <div className="banner__contents">
+          <h1 className="banner__title">
+            {movie?.title || movie?.name || movie?.original_name}
+          </h1>
 
+          <h1 className="banner__description">
+            {truncate(movie?.overview, 150)}
+          </h1>
+        </div>
 
-        <h1 className="banner__description">
-          {truncate(movie?.overview, 150)}
-        </h1>
+        <div className="banner__fadeBottom" />
       </div>
-
-      <div className="banner__fadeBottom" />
-    </div>
-
-    </Fade>
     </>
   );
 };

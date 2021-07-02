@@ -4,7 +4,6 @@ import api from "../../config/api";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 import Star from "../../asset/img/star.svg";
-import Fade from 'react-reveal/Fade'
 
 import "./style.css";
 
@@ -95,7 +94,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
             {loading ? (
               <CircularProgress key={index} color="secondary" />
             ) : (
-              <Fade delay={500 * index}>
               <img
                 key={movie.id}
                 src={`${baseURL}${
@@ -106,7 +104,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                 title={movie.name}
               />
-              </Fade>
             )}
           </>
         ))}
